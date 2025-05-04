@@ -91,14 +91,11 @@
         // Função para cadastrar aluno
         document.getElementById('formCadastro').addEventListener('submit', async (event) => {
             event.preventDefault();
-            console.log('Formulário enviado!'); // Adicione este log
 
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const matricula = document.getElementById('matricula').value;
             const senha = document.getElementById('senha').value;
-
-            console.log({ nome, email, matricula, senha }); // Adicione este log
 
             try {
                 const response = await axios.post(`${apiBaseUrl}/alunos`, {
@@ -107,7 +104,6 @@
                     matricula,
                     senha
                 });
-                console.log('Resposta da API:', response); // Adicione este log
 
                 alert('Aluno cadastrado com sucesso!');
                 document.getElementById('formCadastro').reset();

@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
 from dotenv import load_dotenv
-from bcrypt import hashpw, gensalt  # Importação corrigida
+from bcrypt import hashpw, gensalt
 import os
 
 # Carregar variáveis de ambiente do arquivo .env
@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# Conexão com o banco de dados MySQL
+# Conexão com o banco de dados
 def get_db_connection():
     connection = mysql.connector.connect(
         host=os.getenv('DB_HOST'),
@@ -83,4 +83,4 @@ def home():
 
 # Rodar a aplicação
 if __name__ == '__main__':
-    app.run(debug=True)  # Lembre-se de desativar o debug em produção!
+    app.run(debug=True)
